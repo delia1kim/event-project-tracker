@@ -467,103 +467,504 @@
 
     <script>
         // Sample event data with detailed milestone tracking
-        let eventData = [
-            {
-                id: 'E001',
-                date: '2025-08-30',
-                event: 'Mexico City CMBA',
-                city: 'Mexico City',
-                schools: 24,
-                target: 120,
-                actual: 87,
-                team: ['Seray', 'Manuel'],
-                status: 'complete',
-                milestones: {
-                    schoolReqs: { person: 'Seray, Manuel', status: 'done', date: '2025-07-16' },
-                    slotsOpen: { person: 'Seray, Manuel', status: 'done', date: '2025-07-17' },
-                    automatch: { person: 'Seray, Manuel', status: 'done', date: '2025-07-18' },
-                    selection: { person: 'Seray, Manuel', status: 'done', date: '2025-07-31' },
-                    invites: { person: 'Seray, Manuel', status: 'done', date: '2025-08-16' },
-                    finalPrep: { person: 'Seray, Manuel', status: 'done', date: '2025-08-29' }
-                }
-            },
-            {
-                id: 'E002',
-                date: '2025-09-01',
-                event: 'Bogota CM',
-                city: 'Bogota',
-                schools: 16,
-                target: 80,
-                actual: 23,
-                team: ['Delia', 'Maria'],
-                status: 'behind',
-                milestones: {
-                    schoolReqs: { person: 'Delia', status: 'overdue', due: '2025-07-17', daysLate: 8 },
-                    slotsOpen: { person: 'Delia', status: 'overdue', due: '2025-07-17', daysLate: 8 },
-                    automatch: { person: 'Delia', status: 'overdue', due: '2025-07-17', daysLate: 8 },
-                    selection: { person: 'Delia', status: 'overdue', due: '2025-08-02', daysLate: 30 },
-                    invites: { person: 'Maria', status: 'pending', due: '2025-08-18' },
-                    finalPrep: { person: 'Delia', status: 'not-due', due: '2025-08-31' }
-                }
-            },
-            {
-                id: 'E003',
-                date: '2025-09-06',
-                event: 'Lima CMBA',
-                city: 'Lima',
-                schools: 18,
-                target: 90,
-                actual: 45,
-                team: ['Seray', 'Maria'],
-                status: 'behind',
-                milestones: {
-                    schoolReqs: { person: 'Seray', status: 'overdue', due: '2025-07-23', daysLate: 3 },
-                    slotsOpen: { person: 'Seray', status: 'overdue', due: '2025-07-23', daysLate: 3 },
-                    automatch: { person: 'Seray', status: 'overdue', due: '2025-07-23', daysLate: 3 },
-                    selection: { person: 'Seray', status: 'overdue', due: '2025-08-07', daysLate: 25 },
-                    invites: { person: 'Maria', status: 'pending', due: '2025-08-23' },
-                    finalPrep: { person: 'Seray', status: 'not-due', due: '2025-09-05' }
-                }
-            },
-            {
-                id: 'E004',
-                date: '2025-09-13',
-                event: 'NYC CMBA',
-                city: 'New York City',
-                schools: 30,
-                target: 150,
-                actual: 95,
-                team: ['Seray', 'Manuel'],
-                status: 'active',
-                milestones: {
-                    schoolReqs: { person: 'Seray', status: 'overdue', due: '2025-07-30', daysLate: 1 },
-                    slotsOpen: { person: 'Seray', status: 'overdue', due: '2025-07-30', daysLate: 1 },
-                    automatch: { person: 'Seray', status: 'overdue', due: '2025-07-30', daysLate: 1 },
-                    selection: { person: 'Seray', status: 'overdue', due: '2025-08-14', daysLate: 18 },
-                    invites: { person: 'Manuel', status: 'pending', due: '2025-08-30', dueToday: true },
-                    finalPrep: { person: 'Seray', status: 'not-due', due: '2025-09-12' }
-                }
-            },
-            {
-                id: 'E005',
-                date: '2025-10-14',
-                event: 'Stockholm CMBA+',
-                city: 'Stockholm',
-                schools: 32,
-                target: 160,
-                actual: 0,
-                team: ['Andreea', 'Maria'],
-                status: 'pending',
-                milestones: {
-                    schoolReqs: { person: 'Andreea', status: 'pending', due: '2025-08-30', dueToday: true },
-                    slotsOpen: { person: 'Andreea', status: 'pending', due: '2025-08-30', dueToday: true },
-                    automatch: { person: 'Andreea', status: 'pending', due: '2025-08-30', dueToday: true },
-                    selection: { person: 'Andreea', status: 'not-due', due: '2025-09-14' },
-                    invites: { person: 'Maria', status: 'not-due', due: '2025-09-30' },
-                    finalPrep: { person: 'Andreea', status: 'not-due', due: '2025-10-13' }
-                }
-            }
-        ];
+      // YOUR REAL EVENT DATA - Copy this entire section
+// Replace the "let eventData = [" section in your index.html with this:
+
+let eventData = [
+    {
+        id: 'E001',
+        date: '2025-08-30',
+        event: 'Mexico City CMBA',
+        city: 'Mexico City',
+        schools: 66,
+        target: 120, // Estimate based on schools
+        actual: 0,   // Update as bookings come in
+        team: ['Seray', 'Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray, Manuel', status: 'not-due', due: '2025-07-16' },
+            slotsOpen: { person: 'Seray, Manuel', status: 'not-due', due: '2025-07-16' },
+            automatch: { person: 'Seray, Manuel', status: 'not-due', due: '2025-07-16' },
+            selection: { person: 'Seray, Manuel', status: 'not-due', due: '2025-07-31' },
+            invites: { person: 'Seray, Manuel', status: 'not-due', due: '2025-08-16' },
+            finalPrep: { person: 'Seray, Manuel', status: 'not-due', due: '2025-08-29' }
+        }
+    },
+    {
+        id: 'E002',
+        date: '2025-08-30',
+        event: 'Mexico City Connect Master\'s',
+        city: 'Mexico City',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Andreea', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Andreea, Maria', status: 'not-due', due: '2025-07-16' },
+            slotsOpen: { person: 'Andreea, Maria', status: 'not-due', due: '2025-07-16' },
+            automatch: { person: 'Andreea, Maria', status: 'not-due', due: '2025-07-16' },
+            selection: { person: 'Andreea, Maria', status: 'not-due', due: '2025-07-31' },
+            invites: { person: 'Andreea, Maria', status: 'not-due', due: '2025-08-16' },
+            finalPrep: { person: 'Andreea, Maria', status: 'not-due', due: '2025-08-29' }
+        }
+    },
+    {
+        id: 'E003',
+        date: '2025-09-01',
+        event: 'Bogota Connect Master\'s',
+        city: 'Bogota',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Delia', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Delia', status: 'not-due', due: '2025-07-18' },
+            slotsOpen: { person: 'Delia', status: 'not-due', due: '2025-07-18' },
+            automatch: { person: 'Delia', status: 'not-due', due: '2025-07-18' },
+            selection: { person: 'Delia', status: 'not-due', due: '2025-08-02' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-08-18' },
+            finalPrep: { person: 'Delia', status: 'not-due', due: '2025-08-31' }
+        }
+    },
+    {
+        id: 'E004',
+        date: '2025-09-06',
+        event: 'Lima Connect CMBA',
+        city: 'Lima',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Seray', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray', status: 'not-due', due: '2025-07-23' },
+            slotsOpen: { person: 'Seray', status: 'not-due', due: '2025-07-23' },
+            automatch: { person: 'Seray', status: 'not-due', due: '2025-07-23' },
+            selection: { person: 'Seray', status: 'not-due', due: '2025-08-07' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-08-23' },
+            finalPrep: { person: 'Seray', status: 'not-due', due: '2025-09-05' }
+        }
+    },
+    {
+        id: 'E005',
+        date: '2025-09-06',
+        event: 'Lima Connect Master\'s',
+        city: 'Lima',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Delia', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Delia', status: 'not-due', due: '2025-07-23' },
+            slotsOpen: { person: 'Delia', status: 'not-due', due: '2025-07-23' },
+            automatch: { person: 'Delia', status: 'not-due', due: '2025-07-23' },
+            selection: { person: 'Delia', status: 'not-due', due: '2025-08-07' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-08-23' },
+            finalPrep: { person: 'Delia', status: 'not-due', due: '2025-09-05' }
+        }
+    },
+    {
+        id: 'E006',
+        date: '2025-09-09',
+        event: 'Washington DC Connect Master\'s',
+        city: 'Washington DC',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Seray', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray, Maria', status: 'not-due', due: '2025-07-26' },
+            slotsOpen: { person: 'Seray, Maria', status: 'not-due', due: '2025-07-26' },
+            automatch: { person: 'Seray, Maria', status: 'not-due', due: '2025-07-26' },
+            selection: { person: 'Seray, Maria', status: 'not-due', due: '2025-08-10' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-08-26' },
+            finalPrep: { person: 'Seray, Maria', status: 'not-due', due: '2025-09-08' }
+        }
+    },
+    {
+        id: 'E007',
+        date: '2025-09-09',
+        event: 'Santiago Connect MBA+',
+        city: 'Santiago',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Seray', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray', status: 'not-due', due: '2025-07-26' },
+            slotsOpen: { person: 'Seray', status: 'not-due', due: '2025-07-26' },
+            automatch: { person: 'Seray', status: 'not-due', due: '2025-07-26' },
+            selection: { person: 'Seray', status: 'not-due', due: '2025-08-10' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-08-26' },
+            finalPrep: { person: 'Seray', status: 'not-due', due: '2025-09-08' }
+        }
+    },
+    {
+        id: 'E008',
+        date: '2025-09-11',
+        event: 'Sao Paulo Connect MBA+',
+        city: 'Sao Paulo',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Seray', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray', status: 'not-due', due: '2025-07-28' },
+            slotsOpen: { person: 'Seray', status: 'not-due', due: '2025-07-28' },
+            automatch: { person: 'Seray', status: 'not-due', due: '2025-07-28' },
+            selection: { person: 'Seray', status: 'not-due', due: '2025-08-12' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-08-28' },
+            finalPrep: { person: 'Seray', status: 'not-due', due: '2025-09-10' }
+        }
+    },
+    {
+        id: 'E009',
+        date: '2025-09-11',
+        event: 'Sao Paulo Connect Master\'s',
+        city: 'Sao Paulo',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Seray', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray, Maria', status: 'not-due', due: '2025-07-28' },
+            slotsOpen: { person: 'Seray, Maria', status: 'not-due', due: '2025-07-28' },
+            automatch: { person: 'Seray, Maria', status: 'not-due', due: '2025-07-28' },
+            selection: { person: 'Seray, Maria', status: 'not-due', due: '2025-08-12' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-08-28' },
+            finalPrep: { person: 'Seray, Maria', status: 'not-due', due: '2025-09-10' }
+        }
+    },
+    {
+        id: 'E010',
+        date: '2025-09-13',
+        event: 'New York City Connect CMBA',
+        city: 'New York City',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Seray', 'Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray', status: 'not-due', due: '2025-07-30' },
+            slotsOpen: { person: 'Seray', status: 'not-due', due: '2025-07-30' },
+            automatch: { person: 'Seray', status: 'not-due', due: '2025-07-30' },
+            selection: { person: 'Seray', status: 'not-due', due: '2025-08-14' },
+            invites: { person: 'Manuel', status: 'not-due', due: '2025-08-30' },
+            finalPrep: { person: 'Seray', status: 'not-due', due: '2025-09-12' }
+        }
+    },
+    {
+        id: 'E011',
+        date: '2025-09-13',
+        event: 'New York City Connect Master\'s',
+        city: 'New York City',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Seray', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray, Maria', status: 'not-due', due: '2025-07-30' },
+            slotsOpen: { person: 'Seray, Maria', status: 'not-due', due: '2025-07-30' },
+            automatch: { person: 'Seray, Maria', status: 'not-due', due: '2025-07-30' },
+            selection: { person: 'Seray, Maria', status: 'not-due', due: '2025-08-14' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-08-30' },
+            finalPrep: { person: 'Seray, Maria', status: 'not-due', due: '2025-09-12' }
+        }
+    },
+    {
+        id: 'E012',
+        date: '2025-09-20',
+        event: 'Toronto Connect CMBA',
+        city: 'Toronto',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Delia', 'Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Delia', status: 'not-due', due: '2025-08-06' },
+            slotsOpen: { person: 'Delia', status: 'not-due', due: '2025-08-06' },
+            automatch: { person: 'Delia', status: 'not-due', due: '2025-08-06' },
+            selection: { person: 'Delia', status: 'not-due', due: '2025-08-21' },
+            invites: { person: 'Manuel', status: 'not-due', due: '2025-09-06' },
+            finalPrep: { person: 'Delia', status: 'not-due', due: '2025-09-19' }
+        }
+    },
+    {
+        id: 'E013',
+        date: '2025-09-20',
+        event: 'Toronto Connect Master\'s',
+        city: 'Toronto',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Andreea', 'Manuel', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Andreea, Manuel', status: 'not-due', due: '2025-08-06' },
+            slotsOpen: { person: 'Manuel', status: 'not-due', due: '2025-08-06' },
+            automatch: { person: 'Manuel', status: 'not-due', due: '2025-08-06' },
+            selection: { person: 'Manuel', status: 'not-due', due: '2025-08-21' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-09-06' },
+            finalPrep: { person: 'Andreea, Manuel', status: 'not-due', due: '2025-09-19' }
+        }
+    },
+    {
+        id: 'E014',
+        date: '2025-09-23',
+        event: 'Montreal Connect Master\'s',
+        city: 'Montreal',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Seray', 'Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray', status: 'not-due', due: '2025-08-09' },
+            slotsOpen: { person: 'Seray', status: 'not-due', due: '2025-08-09' },
+            automatch: { person: 'Seray', status: 'not-due', due: '2025-08-09' },
+            selection: { person: 'Seray', status: 'not-due', due: '2025-08-24' },
+            invites: { person: 'Manuel', status: 'not-due', due: '2025-09-09' },
+            finalPrep: { person: 'Seray', status: 'not-due', due: '2025-09-22' }
+        }
+    },
+    {
+        id: 'E015',
+        date: '2025-09-27',
+        event: 'Istanbul Connect CMBA',
+        city: 'Istanbul',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Andreea', 'Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Andreea, Manuel', status: 'not-due', due: '2025-08-13' },
+            slotsOpen: { person: 'Manuel', status: 'not-due', due: '2025-08-13' },
+            automatch: { person: 'Manuel', status: 'not-due', due: '2025-08-13' },
+            selection: { person: 'Manuel', status: 'not-due', due: '2025-08-28' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-09-13' },
+            finalPrep: { person: 'Andreea, Manuel', status: 'not-due', due: '2025-09-26' }
+        }
+    },
+    {
+        id: 'E016',
+        date: '2025-09-27',
+        event: 'Istanbul Connect Master\'s',
+        city: 'Istanbul',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Seray', 'Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Seray', status: 'not-due', due: '2025-08-13' },
+            slotsOpen: { person: 'Seray', status: 'not-due', due: '2025-08-13' },
+            automatch: { person: 'Seray', status: 'not-due', due: '2025-08-13' },
+            selection: { person: 'Seray', status: 'not-due', due: '2025-08-28' },
+            invites: { person: 'Manuel', status: 'not-due', due: '2025-09-13' },
+            finalPrep: { person: 'Seray', status: 'not-due', due: '2025-09-26' }
+        }
+    },
+    {
+        id: 'E017',
+        date: '2025-10-01',
+        event: 'Dublin Connect MBA+',
+        city: 'Dublin',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Manuel', status: 'not-due', due: '2025-08-17' },
+            slotsOpen: { person: 'Manuel', status: 'not-due', due: '2025-08-17' },
+            automatch: { person: 'Manuel', status: 'not-due', due: '2025-08-17' },
+            selection: { person: 'Manuel', status: 'not-due', due: '2025-09-01' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-09-17' },
+            finalPrep: { person: 'Manuel', status: 'not-due', due: '2025-09-30' }
+        }
+    },
+    {
+        id: 'E018',
+        date: '2025-10-01',
+        event: 'Dublin Connect Master\'s',
+        city: 'Dublin',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Andreea', 'Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Andreea', status: 'not-due', due: '2025-08-17' },
+            slotsOpen: { person: 'Andreea', status: 'not-due', due: '2025-08-17' },
+            automatch: { person: 'Andreea', status: 'not-due', due: '2025-08-17' },
+            selection: { person: 'Andreea', status: 'not-due', due: '2025-09-01' },
+            invites: { person: 'Manuel', status: 'not-due', due: '2025-09-17' },
+            finalPrep: { person: 'Andreea', status: 'not-due', due: '2025-09-30' }
+        }
+    },
+    {
+        id: 'E019',
+        date: '2025-10-14',
+        event: 'Stockholm Connect MBA+',
+        city: 'Stockholm',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Andreea', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Andreea', status: 'not-due', due: '2025-08-30' },
+            slotsOpen: { person: 'Andreea', status: 'not-due', due: '2025-08-30' },
+            automatch: { person: 'Andreea', status: 'not-due', due: '2025-08-30' },
+            selection: { person: 'Andreea', status: 'not-due', due: '2025-09-14' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-09-30' },
+            finalPrep: { person: 'Andreea', status: 'not-due', due: '2025-10-13' }
+        }
+    },
+    {
+        id: 'E020',
+        date: '2025-10-14',
+        event: 'Stockholm Connect Master\'s',
+        city: 'Stockholm',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Maria', 'Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Maria', status: 'not-due', due: '2025-08-30' },
+            slotsOpen: { person: 'Maria', status: 'not-due', due: '2025-08-30' },
+            automatch: { person: 'Maria', status: 'not-due', due: '2025-08-30' },
+            selection: { person: 'Maria', status: 'not-due', due: '2025-09-14' },
+            invites: { person: 'Manuel', status: 'not-due', due: '2025-09-30' },
+            finalPrep: { person: 'Maria', status: 'not-due', due: '2025-10-13' }
+        }
+    },
+    {
+        id: 'E021',
+        date: '2025-10-25',
+        event: 'Paris Connect CMBA',
+        city: 'Paris',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Manuel', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Manuel', status: 'not-due', due: '2025-09-10' },
+            slotsOpen: { person: 'Manuel', status: 'not-due', due: '2025-09-10' },
+            automatch: { person: 'Manuel', status: 'not-due', due: '2025-09-10' },
+            selection: { person: 'Manuel', status: 'not-due', due: '2025-09-25' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-10-11' },
+            finalPrep: { person: 'Manuel', status: 'not-due', due: '2025-10-24' }
+        }
+    },
+    {
+        id: 'E022',
+        date: '2025-10-25',
+        event: 'Paris Connect Master\'s',
+        city: 'Paris',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Maria', 'Manuel'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Maria', status: 'not-due', due: '2025-09-10' },
+            slotsOpen: { person: 'Maria', status: 'not-due', due: '2025-09-10' },
+            automatch: { person: 'Maria', status: 'not-due', due: '2025-09-10' },
+            selection: { person: 'Maria', status: 'not-due', due: '2025-09-25' },
+            invites: { person: 'Manuel', status: 'not-due', due: '2025-10-11' },
+            finalPrep: { person: 'Maria', status: 'not-due', due: '2025-10-24' }
+        }
+    },
+    {
+        id: 'E023',
+        date: '2025-11-01',
+        event: 'Shanghai Connect CMBA',
+        city: 'Shanghai',
+        schools: 66,
+        target: 120,
+        actual: 0,
+        team: ['Manuel', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Manuel', status: 'not-due', due: '2025-09-17' },
+            slotsOpen: { person: 'Manuel', status: 'not-due', due: '2025-09-17' },
+            automatch: { person: 'Manuel', status: 'not-due', due: '2025-09-17' },
+            selection: { person: 'Manuel', status: 'not-due', due: '2025-10-02' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-10-18' },
+            finalPrep: { person: 'Manuel', status: 'not-due', due: '2025-10-31' }
+        }
+    },
+    {
+        id: 'E024',
+        date: '2025-11-01',
+        event: 'Shanghai Connect Master\'s',
+        city: 'Shanghai',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Manuel', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Manuel', status: 'not-due', due: '2025-09-17' },
+            slotsOpen: { person: 'Manuel', status: 'not-due', due: '2025-09-17' },
+            automatch: { person: 'Manuel', status: 'not-due', due: '2025-09-17' },
+            selection: { person: 'Manuel', status: 'not-due', due: '2025-10-02' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-10-18' },
+            finalPrep: { person: 'Manuel', status: 'not-due', due: '2025-10-31' }
+        }
+    },
+    {
+        id: 'E025',
+        date: '2025-12-06',
+        event: 'Mumbai Connect Master\'s',
+        city: 'Mumbai',
+        schools: 66,
+        target: 100,
+        actual: 0,
+        team: ['Andreea', 'Manuel', 'Maria'],
+        status: 'pending',
+        milestones: {
+            schoolReqs: { person: 'Andreea', status: 'not-due', due: '2025-10-22' },
+            slotsOpen: { person: 'Manuel', status: 'not-due', due: '2025-10-22' },
+            automatch: { person: 'Manuel', status: 'not-due', due: '2025-10-22' },
+            selection: { person: 'Manuel', status: 'not-due', due: '2025-11-06' },
+            invites: { person: 'Maria', status: 'not-due', due: '2025-11-22' },
+            finalPrep: { person: 'Andreea', status: 'not-due', due: '2025-12-05' }
+        }
+    }
+];
+
+// INSTRUCTIONS TO UPDATE YOUR TRACKER:
+//
+// 1. Go to your GitHub repository
+// 2. Click on "index.html" 
+// 3. Click the pencil icon (Edit this file)
+// 4. Press Ctrl+F and search for "let eventData = ["
+// 5. Select and delete everything from "let eventData = [" down to the closing "];"
+// 6. Copy and paste this entire code block above
+// 7. Scroll to bottom and click "Commit changes"
+// 8. Your tracker will update automatically!
+//
+// NEXT STEPS:
+// - Update the "actual" booking numbers as they come in
+// - Change status from "not-due" to "pending" when tasks are due today
+// - Change to "overdue" when tasks are late
+// - Change to "done" when tasks are completed
+// - Click the status indicators in your live tracker to update them interactively!
 
         let currentFilter = { person: 'all', status: 'all' };
 
